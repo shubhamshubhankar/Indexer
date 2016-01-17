@@ -1,0 +1,520 @@
+
+A Comparative Study of Stemming Algorithms
+Ms. Anjali Ganesh Jivani
+Department of Computer Science & Engineering
+The Maharaja Sayajirao University of Baroda
+Vadodara, Gujarat, India
+anjali_jivani@yahoo.com
+Abstract
+Stemming is a pre-processing step in Text Mining
+applications as well as a very common requirement of
+Natural Language processing functions. In fact it is
+very important in most of the Information Retrieval
+systems. The main purpose of stemming is to reduce
+different grammatical forms / word forms of a word like
+its noun, adjective, verb, adverb etc. to its root form.
+
+We can say that the goal of stemming is to reduce
+inflectional forms and sometimes derivationally related
+forms of a word to a common base form. In this paper
+we have discussed different methods of stemming and
+their comparisons in terms of usage, advantages as well
+as limitations. The basic difference between stemming
+and lemmatization is also discussed.
+Keywords-
+stemming; text mining; NLP; IR; suffix
+1. Introduction
+Word stemming is an important feature supported by
+present day indexing and search systems. Indexing and
+searching are in turn part of Text Mining applications,
+Natural Language Processing (NLP) systems and
+Information Retrieval (IR) systems. The main idea is to
+improve recall by automatic handling of word endings
+by reducing the words to their word roots, at the time of
+indexing and searching. Recall in increased without
+compromising on the precision of the documents
+fetched. Stemming is usually done by removing any
+attached suffixes and prefixes (affixes) from index
+terms before the actual assignment of the term to the
+index. Since the stem of a term represents a broader
+concept than the original term, the stemming process
+eventually increases the number of retrieved documents
+in an IR system. Text clustering, categorization and
+summarization also require this conversion as part of
+the pre-processing before actually applying any related
+algorithm.
+2. Working of a Stemmer
+It has been seen that most of the times the
+morphological variants of words have similar semantic
+interpretations and can be considered as equivalent for
+the purpose of IR applications. Since the meaning is
+same but the word form is different it is necessary to
+identify each word form with its base form. To do this a
+variety of stemming algorithms have been developed.
+Each algorithm attempts to convert the morphological
+variants of a word like introduction, introducing,
+introduces etc. to get mapped to the word ‘introduce’.
+Some algorithms ma
+y map them to just ‘introduc’, but
+that is allowed as long as all of them map to the same
+word form or more popularly known as the stem form.
+Thus, the key terms of a query or document are
+represented by stems rather than by the original words.
+The idea is to reduce the total number of distinct terms
+in a document or a query which in turn will reduce the
+processing time of the final output.
+3. Stemming and Lemmatizing
+The basic function of both the methods
+–
+stemming
+and lemmatizing is similar. Both of them reduce a word
+variant to its ‘stem’ in stemming and ‘lemma’ in
+lemmatizing. There is a very subtle difference between
+both the concepts. In stemming the ‘stem’ is obtaining
+after applying a set of rules but without bothering about
+the part of speech (POS) or the context of the word
+occurrence. In contrast, lemmatizing deals with
+obtaining the ‘lemma’ of a word which involves
+reducing the word forms to its root form after
+understanding the POS and the context of the word in
+the given sentence.
+Anjali
+Ganesh
+Jivani
+et
+al,
+Int.
+J.
+Comp.
+Tech.
+Appl.,
+Vol
+2
+(6),
+1930-1938
+IJCTA
+|
+NOV-DEC
+2011
+Available
+online@www.ijcta.com
+1930
+ISSN:2229-6093
+In stemming, conversion of morphological forms of
+a word to its stem is done assuming each one is
+semantically related. The stem need not be an existing
+word in the dictionary but all its variants should map to
+this form after the stemming has been completed. There
+are two points to be considered while using a stemmer:
+
+Morphological forms of a word are assumed to
+have the same base meaning and hence should
+be mapped to the same stem
+
+Words that do not have the same meaning
+should be kept separate
+These two rules are good enough as long as the
+resultant stems are useful for our text mining or
+language processing applications. Stemming is
+generally considered as a recall-enhancing device. For
+languages with relatively simple morphology, the
+influence of stemming is less than for those with a more
+complex morphology. Most of the stemming
+experiments done so far are for English and other west
+European languages.
+Lemmatizing deals with the complex process of first
+understanding the context, then determining the POS of
+a word in a sentence and then finally finding the
+‘lemma’. In fact an algorithm that converts a word to its
+linguistically correct root is called a lemmatizer.
+A
+lemma in morphology is the canonical form of a
+lexeme. Lexeme, in this context, refers to the set of all
+the forms that have the same meaning, and lemma
+refers to the particular form that is chosen by
+convention to represent the lexeme.
+In computational linguistics, a stem is the part of the
+word that never changes even when morphologically
+inflected, whilst a lemma is the base form of the verb.
+Stemmers are typically easier to implement and run
+faster, and the reduced accuracy may not matter for
+some applications. Lemmatizers are difficult to
+implement because they are related to the semantics and
+the POS of a sentence. Stemming usually refers to a
+crude heuristic process that chops off the ends of words
+in the hope of achieving this goal correctly most of the
+time, and often includes the removal of derivational
+affixes. The results are not always morphologically
+right forms of words. Nevertheless, since document
+index and queries are stemmed "invisibly" for a user,
+this peculiarity should not be considered as a flaw, but
+rather as a feature distinguishing stemming from
+lemmatization. Lemmatization usually refers to doing
+things properly with the use of a vocabulary and
+morphological analysis of words, normally aiming to
+remove inflectional endings only and to return the
+lemma.
+For example, the word inflations like gone, goes,
+going will map to the stem ‘go’. The word ‘went’ will
+not map to the same stem. However a lemmatizer will
+map even the word ‘went’ to the lemma ‘go’.
+Stemming:
+introduction, introducing, introduces
+–
+introduc
+gone, going, goes
+–
+go
+Lemmatizing:
+introduction, introducing, introduces
+–
+introduce
+gone, going, goes, went
+–
+go
+4. Errors in Stemming
+There are mainly two errors in stemming
+–
+over
+stemming and under stemming. Over-stemming is when
+two words with different stems are stemmed to the
+same root. This is also known as a false positive.
+Under-stemming is when two words that should be
+stemmed to the same root are not. This is also known as
+a false negative. Paice has proved that light-stemming
+reduces the over-stemming errors but increases the
+under-stemming errors. On the other hand, heavy
+stemmers reduce the under-stemming errors while
+increasing the over-stemming errors [14, 15].
+5. Classification of Stemming Algorithms
+Broadly, stemming algorithms can be classified in
+three groups: truncating methods, statistical methods,
+and mixed methods. Each of these groups has a typical
+way of finding the stems of the word variants. These
+methods and the algorithms discussed in this paper
+under them are shown in the Fig. 1.
+Figure 1. Types of stemming a
+lg
+orithms
+5.1. Truncating Methods (Affix Removal)
+As the name clearly suggests these methods are
+related to removing the suffixes or prefixes (commonly
+known as affixes) of a word. The most basic stemmer
+Stemming Algorithms
+Truncating
+Statistical
+Mixed
+1)
+Lovins
+2) Porters
+3) Paice/Husk
+4) Dawson
+1)
+N
+-
+Gram
+2
+) HMM
+3) YASS
+a)
+Inflectional
+&
+Derivational
+1) Krovetz
+2) Xerox
+b) Corpus Based
+c) Context Sensitive
+Anjali
+Ganesh
+Jivani
+et
+al,
+Int.
+J.
+Comp.
+Tech.
+Appl.,
+Vol
+2
+(6),
+1930-1938
+IJCTA
+|
+NOV-DEC
+2011
+Available
+online@www.ijcta.com
+1931
+ISSN:2229-6093
+was the Truncate (n) stemmer which truncated a word
+at the nth symbol i.e. keep n letters and remove the rest.
+In this method words shorter than n are kept as it is.
+The chances of over stemming increases when the word
+length is small.
+Another simple approach was the S-stemmer
+–
+an
+algorithm conflating singular and plural forms of
+English nouns. This algorithm was proposed by Donna
+Harman. The algorithm has rules to remove suffixes in
+plurals so as to convert them to the singular forms [7].
+Lovins Stemmer
+This was the first popular and effective stemmer
+proposed by Lovins in 1968. It performs a lookup on a
+table of 294 endings, 29 conditions and 35
+transformation rules, which have been arranged on a
+longest match principle [6]. The Lovins stemmer
+removes the longest suffix from a word. Once the
+ending is removed, the word is recoded using a
+different table that makes various adjustments to
+convert these stems into valid words. It always removes
+a maximum of one suffix from a word, due to its nature
+as single pass algorithm.
+The advantages of this algorithm is it is very fast and
+can handle removal of double letters in words like
+‘getting’ being transformed to ‘get’ and also handles
+many irregular plurals like
+–
+mouse and mice, index
+and indices etc.
+Drawbacks of the Lovins approach are that it is time
+and data consuming. Furthermore, many suffixes are
+not available in the table of endings. It is sometimes
+highly unreliable and frequently fails to form words
+from the stems or to match the stems of like-meaning
+words. The reason being the technical vocabulary being
+used by the author.
+Porters Stemmer
+Porters stemming algorithm [17, 18] is as of now
+one of the most popular stemming methods proposed in
+1980. Many modifications and enhancements have been
+done and suggested on the basic algorithm. It is based
+on the idea that the suffixes in the English language
+(approximately 1200) are mostly made up of a
+combination of smaller and simpler suffixes. It has five
+steps, and within each step, rules are applied until one
+of them passes the conditions. If a rule is accepted, the
+suffix is removed accordingly, and the next step is
+performed. The resultant stem at the end of the fifth
+step is returned.
+The rule looks like the following:
+<condition> <suffix> → <new suffix>
+For example, a rule (m>0) EED → EE means “if the
+word has at least one vowel and consonant plus EED
+ending, change the ending to EE”. So “agreed”
+becomes “agree” while “feed” remains unchanged. This
+algorithm has about 60 rules and is very easy to
+comprehend.
+Porter designed a detailed framework of stemming
+which is known as ‘Snowball’. The main purpose of the
+framework is to allow programmers to develop their
+own stemmers for other character sets or languages.
+Currently there are implementations for many
+Romance, Germanic, Uralic and Scandinavian
+languages as well as English, Russian and Turkish
+languages.
+Based on the stemming errors, Paice reached to a
+conclusion that the Porter stemmer produces less error
+rate than the Lovins stemmer. However it was noted
+that Lovins stemmer is a heavier stemmer that produces
+a better data reduction [1]. The Lovins algorithm is
+noticeably bigger than the Porter algorithm, because of
+its very extensive endings list. But in one way that is
+used to advantage: it is faster. It has effectively traded
+space for time, and with its large suffix set it needs just
+two major steps to remove a suffix, compared with the
+five of the Porter algorithm.
+Paice/Husk Stemmer
+The Paice/Husk stemmer is an iterative algorithm
+with one table containing about 120 rules indexed by
+the last letter of a suffix [
+14
+]. On each iteration, it tries
+to find an applicable rule by the last character of the
+word. Each rule specifies either a deletion or
+replacement of an ending. If there is no such rule, it
+terminates. It also terminates if a word starts with a
+vowel and there are only two letters left or if a word
+starts with a consonant and there are only three
+characters left. Otherwise, the rule is applied and the
+process repeats.
+The advantage is its simple form and every iteration
+taking care of both deletion and replacement as per the
+rule applied.
+The disadvantage is it
+is
+a very heavy algorithm and
+over stemming may occur.
+Dawson Stemmer
+This stemmer is an extension of the Lovins approach
+except that it covers a much more comprehensive list of
+ab
+out 1200 suffixes. Like Lovins it too is a single pass
+stemmer and hence is pretty fast. The suffixes are
+stored in the reversed order indexed by their length and
+last letter. In fact they are organized as a set of
+branched character trees for rapid access.
+The advantage is that it covers more suffixes than
+Lovins and is fast in execution.
+The disadvantage is it is very complex and lacks a
+standard reusable implementation.
+Anjali
+Ganesh
+Jivani
+et
+al,
+Int.
+J.
+Comp.
+Tech.
+Appl.,
+Vol
+2
+(6),
+1930-1938
+IJCTA
+|
+NOV-DEC
+2011
+Available
+online@www.ijcta.com
+1932
+ISSN:2229-6093
+5.2
+.
+Statistical Methods
+These are the stemmers who are based on statistical
+analysis and techniques. Most of the methods remove
+the affixes but after implementing some statistical
+procedure.
+N-Gram Stemmer
+This is a very interesting method and it is language
+independent. Over here string-similarity approach is
+used to convert word inflation to its stem. An n-gram is
+a string of n, usually adjacent, characters extracted from
+a section of continuous text. To be precise an n-gram is
+a set of n consecutive characters extracted from a word.
+The main idea behind this approach is that, similar
+words will have a high proportion of n-grams in
+common. For n equals to 2 or 3, the words extracted are
+called digrams or trigrams, respectively. For example,
+the word ‘INTRODUCTIONS’ results in the generation
+of the digrams:
+*I, IN, NT, TR, RO, OD, DU, UC, CT, TI, IO, ON, NS,
+S*
+and the trigrams:
+**I, *IN, INT, NTR, TRO, ROD, ODU, DUC, UCT,
+CTI, TIO, ION, ONS, NS*, S**
+Where '*' denotes a padding space. There are n+1
+such digrams and n+2 such trigrams in a word
+containing n characters.
+Most stemmers are language-specific. Generally a
+value of 4 or 5 is selected for n. After that a textual data
+or document is analyzed for all the n-grams. It is
+obvious that a word root generally occurs less
+frequently than its morphological form. This means a
+word generally has an affix associated with it. A typical
+statistical analysis based on the inverse document
+frequency (IDF) can be used to identify them.
+This stemmer has an advantage that it is language
+independent and hence very useful in many
+applications.
+Th
+e disadvantage is it requires a significant amount
+of memory and storage for creating and storing the n-
+grams and indexes and hence is not a very practical
+approach.
+HMM Stemmer
+This stemmer is based on the concept of the Hidden
+Markov Model (HMMs) which are finite-state automata
+where transitions between states are ruled by
+probability functions. At each transition, the new state
+emits a symbol with a given probability. This model
+was proposed by Melucci and Orio [12].
+This method is based on unsupervised learning and
+does not need a prior linguistic knowledge of the
+dataset. In this method the probability of each path can
+be computed and the most probable path is found using
+the Viterbi coding in the automata graph.
+In order to apply HMMs to stemming, a sequence of
+letters that forms a word can be considered the result of
+a concatenation of two subsequences: a prefix and a
+suffix. A way to model this process is through an HMM
+where the states are divided in two disjoint sets: initial
+can be the stems only and the later can be the stems or
+suffixes. Transitions between states define word
+building process. There are some assumptions that can
+be made in this method:
+1.
+Initial states belong only to the stem-set -
+a
+word always starts with a stem
+2.
+Transitions from states of the suffix-set to
+states of the stem-set always have a null
+probabiliy - a word can be only a
+concatenation of a stem and a suffix.
+3.
+Final states belong to both sets - a stem can
+have a number of different derivations, but it
+may also have no suffix.
+For any given word, the most probable path from
+initial to final states will produce the split point (a
+transition from roots to suffixes). Then the sequence of
+characters before this point can be considered as a stem.
+The advantage of this method is it is unsupervised
+and hence knowledge of the language is not required.
+The disadvantage is it is a little complex and may
+over stem the words sometimes.
+YASS Stemmer
+The name is an acronym for Yet Another Suffix
+Striper. This stemmer was proposed by Prasenjit
+Majumder, et. al. [20]. According to the authors the
+performance of a stemmer generated by clustering a
+lexicon without any linguistic input is comparable to
+that obtained using standard, rule-based stemmers such
+as Porter’s. This stemmer comes under
+the category of
+statistical as well as corpus based. It does not rely on
+linguistic expertise. Retrieval experiments by the
+authors on English, French, and Bengali datasets show
+that the proposed approach is effective for languages
+that are primarily suffixing in nature.
+The clusters are created using hierarchical approach
+and distance measures. Then the resulting clusters are
+considered as equivalence classes and their centroids as
+the stems. As per the details given in [20], the edit
+distance and YASS distance calculations for two string
+comparisons is shown in Fig. 2 and Fig. 3 of [20]. The
+YASS distance measures D
+1
+, D
+2
+, D
+3
+and D
+4
+are based
+on a Boolean function pi for penalty. It is defined as:
+Anjali
+Ganesh
+Jivani
+et
+al,
+Int.
+J.
+Comp.
+Tech.
+Appl.,
+Vol
+2
+(6),
+1930-1938
+IJCTA
+|
+NOV-DEC
+2011
+Available
+online@www.ijcta.com
+1933
+ISSN:2229-6093
