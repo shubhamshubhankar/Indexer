@@ -1,2 +1,2 @@
-# Indexer
-This is a program which indexes  all the terms of the documents of the corpus.
+# Java-based Text Indexing Application
+This is a Java program for text indexing, which takes in a file containing names of files to be indexed, scans each file to extract the words and assigns a document number to each file. It then builds a hash map to map each unique word to the document number(s) where it appears. The program also implements stop word removal and stemming to improve the quality of the indexed words. The output is a dictionary of words and the corresponding documents where they appear.
